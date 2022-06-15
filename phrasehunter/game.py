@@ -1,6 +1,8 @@
 # Create your Game class logic in here.
 import random
 from phrasehunter.phrase import Phrase
+
+
 class Game:
     # Universal attributes here.
 
@@ -16,22 +18,21 @@ class Game:
         #                 Phrase("Truth is found neither in the thesis nor the antithesis"),
         #                 Phrase("When liberty is mentioned we must always be careful to observe whether it is not "
         #                        "really the assertion of private interests which is thereby designated"),
-        #                 Phrase("An idea is always a generalization and generalization is a property of thinking")]  # List of phrase objects.
+        #                 Phrase("An idea is always a generalization and generalization is a property of thinking")]
+        # List of phrase objects.
         # Quotes taken from Goodreads.
         self.active_phrase = self.get_random_phrase()  # Phrase to be used in current round of play.
         self.guesses = [" "]  # List of all guesses made by user.
 
-
     def get_random_phrase(self):
-        random_num = random.randrange(0,5)
+        random_num = random.randrange(0, 5)
         random_phrase = self.phrases[random_num]
         self.active_phrase = random_phrase
         return self.active_phrase
 
-
     def welcome(self):
         return print("\nWelcome to the phrasehunter game!\n"
-                     "Presented by G.W.F. Hegel")
+                     "\nPresented by G.W.F. Hegel\n")
 
     def start(self):
         self.welcome()
@@ -53,17 +54,15 @@ class Game:
                 else:
                     break
 
-            self.guesses.append(user_guess)
-            if not self.active_phrase.check_guess(user_guess):
+            self.guesses.append(user_guess)  # Adds current guess to the list.
+            if not self.active_phrase.check_guess(user_guess):  # If guess is not in the phrase, adds to miss count.
                 print("\nBummer. Try Again.\n")
                 self.missed += 1
-                print(f"You have {5 -self.missed} guesses left.")
-            # self.complete = self.complete.check_complete(self.guesses)
+                print(f"You have {5 - self.missed} guesses left.")
         self.game_over()
 
     def get_guess(self):
         return input("\n\nPlease guess a letter:   ")
-
 
     def game_over(self):
         if self.missed == 5:
@@ -74,7 +73,6 @@ class Game:
             print("\nCongratulations! You won!\n")
             print(f"\nThe phrase was: {str(self.active_phrase)}\n")
             self.restart_game()
-
 
     def restart_game(self):
         while True:
