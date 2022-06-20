@@ -8,19 +8,12 @@ class Game:
 
     def __init__(self):  # *** Why should I set these attributes in the instance instead of the universal? ***
         self.missed = 0  # Tracks number of misses by player.
-        self.phrases = [Phrase("Nothing"),
-                        Phrase("We learn"),
-                        Phrase("Truth"),
-                        Phrase("When liberty"),
-                        Phrase("An idea")]
-        # self.phrases = [Phrase("Nothing great in the world was accomplished without passion"),
-        #                 Phrase("We learn from history that we do not learn from history"),
-        #                 Phrase("Truth is found neither in the thesis nor the antithesis"),
-        #                 Phrase("When liberty is mentioned we must always be careful to observe whether it is not "
-        #                        "really the assertion of private interests which is thereby designated"),
-        #                 Phrase("An idea is always a generalization and generalization is a property of thinking")]
+        self.phrases = [Phrase("Determinate Being"),
+                        Phrase("Essence of essence"),
+                        Phrase("The Concept"),
+                        Phrase("Dialectical Logic"),
+                        Phrase("Absolute Spirit")]
         # List of phrase objects.
-        # Quotes taken from Goodreads.
         self.active_phrase = self.get_random_phrase()  # Phrase to be used in current round of play.
         self.guesses = [" "]  # List of all guesses made by user.
 
@@ -89,5 +82,5 @@ class Game:
 
     def reset_game(self):  # Resets all necessary parameters to start a new game.
         self.missed = 0
-        self.active_phrase = self.get_random_phrase()  # Phrase to be used in current round of play.
-        self.guesses = [" "]  # List of all guesses made by user.
+        self.active_phrase = self.get_random_phrase()
+        self.guesses = [" "]
