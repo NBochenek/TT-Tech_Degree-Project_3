@@ -55,7 +55,7 @@ class Game:
         self.game_over()
 
     def get_guess(self):
-        return input("\n\nPlease guess a letter:   ")
+        return input("\n\nPlease guess a letter:   ").lower()
 
     def game_over(self):
         if self.missed == 5:

@@ -10,7 +10,7 @@ class Phrase:
             if letter in guesses:
                 print(f"{letter}", end=" ")
             else:
-                print("_ ", end=" ")  # Fills in unguessed letters with underscores.
+                print(" _ ", end=" ")  # Fills in unguessed letters with underscores.
 
     def check_guess(self, guess):
         if guess in self.phrase:
